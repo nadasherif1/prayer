@@ -36,7 +36,7 @@ const QuranRadio = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-6 mt-[100px] ">
+    <div className="container mx-auto p-6 mt-[150px] ">
       <h1 className="text-3xl font-bold text-center mb-20">
         إذاعات القرآن الكريم في جميع البلدان
       </h1>

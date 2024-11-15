@@ -39,7 +39,7 @@ const PrayerTimes = () => {
     initial="initial"
     whileInView="animate"
     viewport={{ once: true }}
-    transition={{ duration: 0.4, delay: 0.3 }} className="text-center mt-[120px]">
+    transition={{ duration: 0.4, delay: 0.3 }} className="text-center mt-[160px]">
       <div className="flex justify-between items-center mx-auto container p-4 max-w-7xl">
         <div className="text-xl md:text-2xl font-bold">{formatDate(today)}</div>
         <div className="text-xl md:text-2xl font-bold">{today.toLocaleDateString('ar-EG-u-ca-islamic')}</div>
@@ -67,9 +67,9 @@ const PrayerTimes = () => {
 };
 
 const PrayerTimeCard = ({ label, time }) => (
-  <div className="border bg-gray-50 border-gray-500 rounded-full p-4 flex flex-col justify-center items-center text-center text-lg sm:text-xl font-bold w-[45vw] h-[45vw] sm:w-[200px] sm:h-[200px] lg:w-[180px] lg:h-[180px]">
+  <div className="border bg-gray-50 border-gray-500 rounded-full p-4 flex flex-col justify-center items-center text-center text-lg sm:text-xl font-bold w-[45vw] h-[45vw] sm:w-[200px] sm:h-[200px] lg:w-[180px] lg:h-[180px] text-black">
     <div>{time}</div>
-    <div className="text-gray-500 mt-2">{label}</div>
+    <div className="text-black mt-2">{label}</div>
   </div>
 );
 

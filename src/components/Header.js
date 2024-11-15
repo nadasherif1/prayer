@@ -3,12 +3,12 @@ import Link from "next/link";
 const Header = ({ dark, toggleDarkMode }) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gray-800 text-white py-4 shadow-md">
-      <div className="flex justify-between items-center mx-auto container p-4 max-w-7xl">
-        <h1 className="text-2xl font-bold">
+      <div className="flex flex-col lg:flex-row justify-between items-center mx-auto container px-4 max-w-7xl">
+        <h1 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-0">
           <Link href="/">الفوز بالجنة</Link>
         </h1>
         <nav>
-          <ul className="flex space-x-4">
+          <ul className="flex flex-wrap justify-center lg:justify-end gap-2 lg:gap-4">
             <li className="hover:underline underline-offset-4 font-bold">
               <Link className="text-white hover:text-gray-400" href="/">
                 الصفحة الرئيسية
@@ -17,7 +17,8 @@ const Header = ({ dark, toggleDarkMode }) => {
             <li className="hover:underline underline-offset-4 font-bold">
               <Link
                 className="text-white hover:text-gray-400"
-                href="/prayer-times">
+                href="/prayer-times"
+              >
                 مواقيت الصلاة
               </Link>
             </li>
@@ -36,19 +37,19 @@ const Header = ({ dark, toggleDarkMode }) => {
                 الاحاديث
               </Link>
             </li>
-
             <li className="hover:underline underline-offset-4 font-bold">
               <Link
                 className="text-white hover:text-gray-400"
-                href="/namesOfAllah">
+                href="/namesOfAllah"
+              >
                 الاسماء الحسني
               </Link>
             </li>
-
             <li className="hover:underline underline-offset-4 font-bold">
               <Link
                 className="text-white hover:text-gray-400"
-                href="/radioPage">
+                href="/radioPage"
+              >
                 اذاعه القران الكريم
               </Link>
             </li>
@@ -60,3 +61,4 @@ const Header = ({ dark, toggleDarkMode }) => {
 };
 
 export default Header;
+

@@ -27,7 +27,7 @@ const Quran = () => {
           <Image src="/quran_image.webp" width={300} height={300} alt="Quran" />
         </div>
       </div>
-      <div className=" bg-gray-500 font-bold w-[8%] p-3 ml-[300px] rounded-lg">
+      <div className=" bg-gray-500 font-bold w-[20%] flex justify-center items-center ml-[100px] p-3 rounded-lg">
         <Link href="/quran">القران الكريم</Link>
       </div>
     </div>

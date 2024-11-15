@@ -9,15 +9,16 @@ const Hadith = () => {
   useEffect(() => {
     const fetchHadiths = async () => {
       try {
-        const response = await fetch("https://hadithapi.com/public/api/hadiths?apiKey=$2y$10$EhOBQubaytO2zayidmAzOPfFReUtsaKZPpGdubuMGxYywzTllme");
-        
-       
+        const response = await fetch(
+          "https://hadithapi.com/public/api/hadiths?apiKey=$2y$10$EhOBQubaytO2zayidmAzOPfFReUtsaKZPpGdubuMGxYywzTllme"
+        );
+
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
 
         const data = await response.json();
-        console.log(data); 
+        console.log(data);
 
         if (data.hadiths && data.hadiths.data) {
           setHadith(data.hadiths.data);
@@ -35,20 +36,30 @@ const Hadith = () => {
   }, []);
 
   return (
-    <div className="mt-[100px] container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4 text-center">الأحاديث النبوية</h1>
+    <div className="mt-[150px] px-4 sm:px-6 lg:px-8 ">
+      <h1 className="text-2xl sm:text-3xl font-bold pt-6 p-5 text-center">
+        الأحاديث النبوية
+      </h1>
       {loading ? (
-        <p className="text-lg font-bold text-center">جاري تحميل الأحاديث...</p>
+        <p className="text-base sm:text-lg font-bold text-center">
+          جاري تحميل الأحاديث...
+        </p>
       ) : (
-        <div className="grid grid-cols-1 gap-4">
+        <div className="flex flex-col gap-6 items-center lg:items-stretch lg:w-[80%] lg:mx-auto">
           {hadith.map((item, index) => (
             <div
               key={index}
-              className="p-4  text-center rounded-lg shadow-md  transition duration-200 cursor-pointer"
+              className="p-4 rounded-lg shadow-md border border-gray-200 transition-transform duration-200 hover:scale-105 w-full"
             >
-              <p className="text-lg font-bold">{item.hadithArabic}</p>
-              <p className="text-sm text-gray-500 mt-2">المصدر: {item.book.bookName}</p>
-              <p className="text-sm text-gray-500 mt-2">الراوي: {item.englishNarrator}</p>
+              <p className="text-lg sm:text-xl font-bold text-center">
+                {item.hadithArabic}
+              </p>
+              <p className="text-sm text-gray-500 mt-2 text-center">
+                المصدر: {item.book.bookName}
+              </p>
+              <p className="text-sm text-gray-500 mt-2 text-center">
+                الراوي: {item.englishNarrator}
+              </p>
             </div>
           ))}
         </div>

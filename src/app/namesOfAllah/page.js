@@ -15,7 +15,7 @@ const NamesOfAllah = () => {
   //     .catch(error => console.error("Error loading names:", error));
   // }, []);
   return (
-    <div className=" min-h-screen flex flex-col items-center py-10 mt-[100px]">
+    <div className=" min-h-screen flex flex-col items-center py-10 mt-[150px]">
       <h1 className="text-3xl font-bold  mb-8">
         أسماء الله الحسنى
       </h1>
