@@ -66,8 +66,6 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-
-        {/* Mobile Navigation */}
         <div className="lg:hidden">
           <IconButton color="inherit" onClick={toggleDrawer}>
             <MenuIcon />
