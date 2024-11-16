@@ -46,7 +46,7 @@ const QuranRadio = () => {
           <div
             key={index}
             className={`text-center rounded-2xl py-10 border-2 border-[#ddd] p-3 cursor-pointer grow basis-[300px]  transition-all  duration-200 ${
-              playingUrl === station.url ? "bg-green-300 text-white" : ""
+              playingUrl === station.url ? "bg-gray-500 text-white" : ""
             }`}
             onClick={() => togglePlay(station.url)}>
             <h2 className="text-xl font-semibold mb-2">{station.name}</h2>

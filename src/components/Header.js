@@ -27,31 +27,12 @@ const Header = () => {
           <Link href="/">الفوز بالجنة</Link>
         </h1>
 
-        <nav className="hidden lg:block">
+        <nav className="hidden lg:block ">
           <ul className="flex gap-6 text-lg font-semibold">
+            
             <li className="hover:underline underline-offset-4">
-              <Link className="text-white hover:text-gray-400" href="/">
-                الصفحة الرئيسية
-              </Link>
-            </li>
-            <li className="hover:underline underline-offset-4">
-              <Link className="text-white hover:text-gray-400" href="/prayer-times">
-                مواقيت الصلاة
-              </Link>
-            </li>
-            <li className="hover:underline underline-offset-4">
-              <Link className="text-white hover:text-gray-400" href="/quran">
-                القران الكريم
-              </Link>
-            </li>
-            <li className="hover:underline underline-offset-4">
-              <Link className="text-white hover:text-gray-400" href="/azkar">
-                الاذكار
-              </Link>
-            </li>
-            <li className="hover:underline underline-offset-4">
-              <Link className="text-white hover:text-gray-400" href="/hadith">
-                الاحاديث
+              <Link className="text-white hover:text-gray-400" href="/radioPage">
+                اذاعه القران الكريم
               </Link>
             </li>
             <li className="hover:underline underline-offset-4">
@@ -60,10 +41,31 @@ const Header = () => {
               </Link>
             </li>
             <li className="hover:underline underline-offset-4">
-              <Link className="text-white hover:text-gray-400" href="/radioPage">
-                اذاعه القران الكريم
+              <Link className="text-white hover:text-gray-400" href="/hadith">
+                الاحاديث
               </Link>
             </li>
+            <li className="hover:underline underline-offset-4">
+              <Link className="text-white hover:text-gray-400" href="/azkar">
+                الاذكار
+              </Link>
+            </li>
+            <li className="hover:underline underline-offset-4">
+              <Link className="text-white hover:text-gray-400" href="/quran">
+                القران الكريم
+              </Link>
+            </li>
+            <li className="hover:underline underline-offset-4">
+              <Link className="text-white hover:text-gray-400" href="/prayer-times">
+                مواقيت الصلاة
+              </Link>
+            </li>
+            <li className="hover:underline underline-offset-4">
+              <Link className="text-white hover:text-gray-400" href="/">
+                الصفحة الرئيسية
+              </Link>
+            </li>
+            
           </ul>
         </nav>
         <div className="lg:hidden">

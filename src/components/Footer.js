@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import {FaFacebookF } from 'react-icons/fa';
+import { FaFacebookF } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
-import {FaInstagram} from 'react-icons/fa';
-import {FaLinkedinIn} from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa';
+import { FaLinkedinIn } from 'react-icons/fa';
+
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white p-8">
@@ -20,30 +21,39 @@ const Footer = () => {
 
         <div className="lg:w-1/3 text-center">
           <h3 className="text-lg font-bold mb-2">الصفحات</h3>
-          <ul className="space-y-2">
-            <li>
-              <Link href="/" className="hover:text-gray-400">
-                الصفحة الرئيسية
-              </Link>
-            </li>
-            <li>
-              <Link href="/quran" className="hover:text-gray-400">
+          <ul className="space-y-1 rtl  grid grid-cols-2 w-[100%] sm:grid-cols-2 lg:grid-cols-3">
+            
+          <li>
+              <Link href="/quran" className="hover:text-gray-400 w-[20%]">
                 القرآن
               </Link>
             </li>
             <li>
-              <Link href="/azkar" className="hover:text-gray-400">
+              <Link href="/azkar" className="hover:text-gray-400 w-[20%]">
                 الأذكار
               </Link>
             </li>
             <li>
-              <Link href="/prayer-times" className="hover:text-gray-400">
+              <Link href="/" className="hover:text-gray-400 w-[20%]">
+                الصفحة الرئيسية
+              </Link>
+            </li>
+           
+            
+            <li>
+              <Link href="/prayer-times" className="hover:text-gray-400 w-[20%]">
                 مواقيت الصلاة
               </Link>
             </li>
             <li>
-              <Link href="/hadith" className="hover:text-gray-400">
+              <Link href="/hadith" className="hover:text-gray-400 w-[20%]">
                 الأحاديث
+              </Link>
+            </li>
+            
+            <li>
+              <Link href="/radioPage" className="hover:text-gray-400 w-[20%]">
+                الاذاعه
               </Link>
             </li>
           </ul>
@@ -53,20 +63,21 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-2">مواقع التواصل الاجتماعي</h3>
           <div className="flex justify-center space-x-4 rtl:space-x-reverse">
             <Link href="https://www.facebook.com/" className="hover:text-gray-400">
-            <FaFacebookF />
+              <FaFacebookF />
             </Link>
             <Link href="https://x.com/" className="hover:text-gray-400">
-            <FaTwitter />
+              <FaTwitter />
             </Link>
             <Link href="https://www.instagram.com/" className="hover:text-gray-400">
-            <FaInstagram />
+              <FaInstagram />
             </Link>
             <Link href="https://www.linkedin.com/" className="hover:text-gray-400">
-            <FaLinkedinIn />
+              <FaLinkedinIn />
             </Link>
           </div>
         </div>
       </div>
+
       <div className="text-center mt-6">
         <p>© 2024 جميع الحقوق محفوظة.</p>
       </div>
