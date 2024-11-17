@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FaFacebookF } from 'react-icons/fa';
-import { FaTwitter } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 import { FaLinkedinIn } from 'react-icons/fa';
 
@@ -19,7 +19,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="lg:w-1/3 text-center">
+        <div className="lg:w-1/3 text-center rtl">
           <h3 className="text-lg font-bold mb-2">الصفحات</h3>
           <ul className="space-y-1 rtl  grid grid-cols-2 w-[100%] sm:grid-cols-2 lg:grid-cols-3">
             
@@ -39,12 +39,12 @@ const Footer = () => {
               </Link>
             </li>
            
-            
             <li>
-              <Link href="/prayer-times" className="hover:text-gray-400 w-[20%]">
-                مواقيت الصلاة
+              <Link href="/radioPage" className="hover:text-gray-400 w-[20%]">
+                الاذاعه
               </Link>
             </li>
+           
             <li>
               <Link href="/hadith" className="hover:text-gray-400 w-[20%]">
                 الأحاديث
@@ -52,8 +52,8 @@ const Footer = () => {
             </li>
             
             <li>
-              <Link href="/radioPage" className="hover:text-gray-400 w-[20%]">
-                الاذاعه
+              <Link href="/prayer-times" className="hover:text-gray-400 w-[20%]">
+                مواقيت الصلاة
               </Link>
             </li>
           </ul>
@@ -62,16 +62,16 @@ const Footer = () => {
         <div className="lg:w-1/3 text-center">
           <h3 className="text-lg font-bold mb-2">مواقع التواصل الاجتماعي</h3>
           <div className="flex justify-center space-x-4 rtl:space-x-reverse">
-            <Link href="https://www.facebook.com/" className="hover:text-gray-400">
+            <Link href="https://www.facebook.com/profile.php?id=100077783592516&mibextid=ZbWKwL" className="hover:text-gray-400">
               <FaFacebookF />
             </Link>
-            <Link href="https://x.com/" className="hover:text-gray-400">
-              <FaTwitter />
+            <Link href="https://wa.me/01227329258" target='_blank'  className="hover:text-gray-400">
+              <FaWhatsapp />
             </Link>
-            <Link href="https://www.instagram.com/" className="hover:text-gray-400">
+            <Link href="https://www.instagram.com/nada5386mohamed/profilecard/?igsh=aGh2dzk5Zno4c3F0" className="hover:text-gray-400">
               <FaInstagram />
             </Link>
-            <Link href="https://www.linkedin.com/" className="hover:text-gray-400">
+            <Link href="https://www.linkedin.com/in/nada-sherif-b9290123b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="hover:text-gray-400">
               <FaLinkedinIn />
             </Link>
           </div>

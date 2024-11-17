@@ -45,7 +45,7 @@ const Hadith = () => {
           جاري تحميل الأحاديث...
         </p>
       ) : (
-        <div className="flex flex-col gap-6 items-center lg:items-stretch lg:w-[80%] lg:mx-auto">
+        <div className="flex flex-col gap-6 items-center mb-[20px] lg:items-stretch lg:w-[80%] lg:mx-auto">
           {hadith.map((item, index) => (
             <div
               key={index}

@@ -10,12 +10,12 @@ import {
 
 const PrayerTimes = () => {
   const prayerTimes = {
-    الفجر: "4:45 AM",
-    الشروق: "6:07 AM",
-    الظهر: "11:38 PM",
-    العصر: "3:32 PM",
-    المغرب: "5:09 PM",
-    العشاء: "6:31 PM",
+    الفجر: "4:53 AM",
+    الشروق: "6:24 AM",
+    الظهر: "11:41 PM",
+    العصر: "3:37 PM",
+    المغرب: "4:58 PM",
+    العشاء: "6:19 PM",
   };
 
   const [nextPrayer, setNextPrayer] = useState("");
