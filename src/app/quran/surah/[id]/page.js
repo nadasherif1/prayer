@@ -29,7 +29,7 @@ const Surah = ({ params }) => {
 
   return (
     <div className="container mx-auto mt-[100px] p-6">
-        <Link href="/quran" className="text-lg font-bold mb-4 bg-[#404040] rounded-lg p-2 relative top-0 right-0 "> العوده الي السور</Link>
+        <Link href="/quran" className="text-lg font-bold mb-4 border border-gray-400 rounded-lg p-2 relative top-0 right-0 "> العوده الي السور</Link>
       {surah ? (
         <>
           <h1 className="text-3xl p-5 font-bold mb-4 text-center">
