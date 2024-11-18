@@ -1,10 +1,24 @@
 "use client";
 
+import Search from "@/components/Search";
 import { useEffect, useState } from "react";
 
 const QuranRadio = () => {
   const [playingUrl, setPlayingUrl] = useState(null);
-  const [radio, setRadio] = useState([]);
+  const [radio, setRadio] = useState([]); 
+  const [filteredPosts, setFilteredPosts] = useState([]); 
+
+  const handleSearch = (searchTerm) => {
+    if (searchTerm.trim() === "") {
+      setFilteredPosts(radio);
+    } else {
+      setFilteredPosts(
+        radio.filter((station) =>
+          station.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }
+  };
 
   const togglePlay = (url) => {
     if (playingUrl === url) {
@@ -23,7 +37,8 @@ const QuranRadio = () => {
         const data = await res.json();
 
         if (data && data.radios) {
-          setRadio(data.radios);
+          setRadio(data.radios); 
+          setFilteredPosts(data.radios); 
         } else {
           console.error("Unexpected data structure:", data);
         }
@@ -36,16 +51,17 @@ const QuranRadio = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-6 mt-[150px] ">
-      <h1 className="text-3xl font-bold text-center mb-20">
+    <div className="container mx-auto p-6 mt-[150px]">
+      <Search onSearch={handleSearch} />
+      <h1 className="text-3xl font-bold text-center m-[40px]">
         إذاعات القرآن الكريم في جميع البلدان
       </h1>
 
-      <div className="flex flex-wrap items-center justify-center gap-10 transition-all duration-300">
-        {radio.map((station, index) => (
+      <div className="flex flex-wrap items-center justify-center gap-10 transition-all duration-300   ">
+        {filteredPosts.map((station, index) => (
           <div
             key={index}
-            className={`text-center rounded-2xl py-10 border-2 border-[#ddd] p-3 cursor-pointer grow basis-[300px]  transition-all  duration-200 ${
+            className={` transition-transform duration-200 hover:scale-105 text-center rounded-2xl py-10 border-2 border-[#ddd] p-3 cursor-pointer grow basis-[300px]  transition-all  duration-200 ${
               playingUrl === station.url ? "bg-gray-500 text-white" : ""
             }`}
             onClick={() => togglePlay(station.url)}>

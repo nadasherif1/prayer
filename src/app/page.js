@@ -32,7 +32,7 @@ export default function Home() {
     <MantineProvider defaultColorScheme={dark ? "dark" : "light"}>
       <motion.div className="text-center py-8 bg-[url('/prayer-times-riga-2.jpg')] bg-center bg-cover w-full bg-no-repeat min-h-screen relative">
         <div
-          className={`px-4 sm:px-6 py-2 cursor-pointer rounded-full absolute z-10 right-4  sm:right-10 top-6 sm:top-28 bg-gray-300`}
+          className={`px-4 sm:px-6 py-2 cursor-pointer rounded-full absolute z-10 right-4  sm:right-10 top-6 sm:top-28 bg-gray-500`}
           onClick={toggleDarkMode}>
           Switch dark mode
         </div>

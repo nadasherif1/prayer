@@ -62,16 +62,16 @@ const Footer = () => {
         <div className="lg:w-1/3 text-center">
           <h3 className="text-lg font-bold mb-2">مواقع التواصل الاجتماعي</h3>
           <div className="flex justify-center space-x-4 rtl:space-x-reverse">
-            <Link href="https://www.facebook.com/profile.php?id=100077783592516&mibextid=ZbWKwL" className="hover:text-gray-400">
+            <Link href="https://www.facebook.com/profile.php?id=100077783592516&mibextid=ZbWKwL" target='_blank' className="hover:text-gray-400">
               <FaFacebookF />
             </Link>
-            <Link href="https://wa.me/01227329258" target='_blank'  className="hover:text-gray-400">
+            <Link href="https://wa.me/01227329258888" target='_blank'  className="hover:text-gray-400">
               <FaWhatsapp />
             </Link>
-            <Link href="https://www.instagram.com/nada5386mohamed/profilecard/?igsh=aGh2dzk5Zno4c3F0" className="hover:text-gray-400">
+            <Link href="https://www.instagram.com/nada5386mohamed/profilecard/?igsh=aGh2dzk5Zno4c3F0" target='_blank' className="hover:text-gray-400">
               <FaInstagram />
             </Link>
-            <Link href="https://www.linkedin.com/in/nada-sherif-b9290123b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="hover:text-gray-400">
+            <Link href="https://www.linkedin.com/in/nada-sherif-b9290123b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target='_blank' className="hover:text-gray-400">
               <FaLinkedinIn />
             </Link>
           </div>

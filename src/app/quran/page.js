@@ -20,10 +20,8 @@ const Quran = () => {
 
   return (
     <div className="container mx-auto p-6 mt-[150px]">
-      {/* العنوان */}
       <h1 className="text-3xl font-bold mb-4 text-center">القرآن الكريم</h1>
 
-      {/* الشبكة */}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {surahs.map((surah) => (
           <Link href={`/quran/surah/${surah.number}`} key={surah.number}>
