@@ -65,7 +65,7 @@ const Footer = () => {
             <Link href="https://www.facebook.com/profile.php?id=100077783592516&mibextid=ZbWKwL" target='_blank' className="hover:text-gray-400">
               <FaFacebookF />
             </Link>
-            <Link href="https://wa.me/01227329258888" target='_blank'  className="hover:text-gray-400">
+            <Link href="https://wa.me/01548" target='_blank'  className="hover:text-gray-400">
               <FaWhatsapp />
             </Link>
             <Link href="https://www.instagram.com/nada5386mohamed/profilecard/?igsh=aGh2dzk5Zno4c3F0" target='_blank' className="hover:text-gray-400">
