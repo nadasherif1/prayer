@@ -73,7 +73,7 @@ const PrayerTimes = () => {
 
 const PrayerTimeCard = ({ label, time, order }) => (
   <div
-    className={`border bg-gray-50 border-gray-500 rounded-full p-4 flex flex-col justify-center items-center text-center text-lg sm:text-xl font-bold w-[45vw] h-[45vw] sm:w-[200px] sm:h-[200px] lg:w-[180px] lg:h-[180px] text-black`}
+    className={`border bg-gray-50 border-gray-500 lg:mr-[50px] mr-[-10px] rounded-full p-4 flex flex-col justify-center items-center text-center text-lg sm:text-xl font-bold w-[45vw] h-[45vw] sm:w-[200px] sm:h-[200px] lg:w-[180px] lg:h-[180px] text-black`}
   >
     <div>{time}</div>
     <div className="text-black mt-2">{label}</div>
