@@ -12,6 +12,7 @@ const Prophet = () => {
             src="/Muhammad_(s.webp"
             width={300}
             height={300}
+             layout="intrinsic"
             alt="Prophet Muhammad"
             className="w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72"
           />

@@ -28,6 +28,7 @@ const Quran = () => {
             src="/quran_image.webp"
             width={300}
             height={300}
+            layout="intrinsic"
             alt="Quran"
             className="w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72"
           />

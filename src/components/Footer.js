@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="bg-gray-800 text-white p-8">
       <div className="container mx-auto flex flex-col lg:flex-row lg:justify-end gap-8 px-4">
         <div className="lg:w-1/3 text-center">
-          <h3 className="text-lg font-bold mb-2">تذكير</h3>
+          <h1 className="text-lg font-bold mb-2">تذكير</h1>
           <p>
             إِن تَكْفُرُوا فَإِنَّ اللَّهَ غَنِيٌّ عَنكُمْ ۖ وَلَا يَرْضَىٰ
             لِعِبَادِهِ الْكُفْرَ ۖ وَإِن تَشْكُرُوا يَرْضَهُ لَكُمْ ۗ وَلَا
@@ -20,39 +20,39 @@ const Footer = () => {
         </div>
 
         <div className="lg:w-1/3 text-center rtl">
-          <h3 className="text-lg font-bold mb-2">الصفحات</h3>
+          <h2 className="text-lg font-bold mb-2">الصفحات</h2>
           <ul className="space-y-1 rtl  grid grid-cols-2 w-[100%] sm:grid-cols-2 lg:grid-cols-3">
             
           <li>
-              <Link href="/quran" className="hover:text-gray-400 w-[20%]">
+              <Link href="/quran" className="hover:text-gray-400 w-[20%]" aria-label=" القران" >
                 القرآن
               </Link>
             </li>
             <li>
-              <Link href="/azkar" className="hover:text-gray-400 w-[20%]">
+              <Link href="/azkar" className="hover:text-gray-400 w-[20%]" aria-label=" الاذكار" >
                 الأذكار
               </Link>
             </li>
             <li>
-              <Link href="/" className="hover:text-gray-400 w-[20%]">
+              <Link href="/" className="hover:text-gray-400 w-[20%]" aria-label=" الصفحه الرئيسيه" >
                 الصفحة الرئيسية
               </Link>
             </li>
            
             <li>
-              <Link href="/radioPage" className="hover:text-gray-400 w-[20%]">
+              <Link href="/radioPage" className="hover:text-gray-400 w-[20%]" aria-label=" الاذاعه" >
                 الاذاعه
               </Link>
             </li>
            
             <li>
-              <Link href="/hadith" className="hover:text-gray-400 w-[20%]">
+              <Link href="/hadith" className="hover:text-gray-400 w-[20%]" aria-label=" الأحاديث">
                 الأحاديث
               </Link>
             </li>
             
             <li>
-              <Link href="/prayer-times" className="hover:text-gray-400 w-[20%]">
+              <Link href="/prayer-times" className="hover:text-gray-400 w-[20%]" aria-label="مواقيت الصلاة">
                 مواقيت الصلاة
               </Link>
             </li>
@@ -62,16 +62,16 @@ const Footer = () => {
         <div className="lg:w-1/3 text-center">
           <h3 className="text-lg font-bold mb-2">مواقع التواصل الاجتماعي</h3>
           <div className="flex justify-center space-x-4 rtl:space-x-reverse">
-            <Link href="https://www.facebook.com/profile.php?id=100077783592516&mibextid=ZbWKwL" target='_blank' className="hover:text-gray-400">
+            <Link href="https://www.facebook.com/profile.php?id=100077783592516&mibextid=ZbWKwL" target='_blank' className="hover:text-gray-400" aria-label=" فيسبوك" >
               <FaFacebookF />
             </Link>
-            <Link href="https://wa.me/01548" target='_blank'  className="hover:text-gray-400">
+            <Link href="https://wa.me/01548" target='_blank'  className="hover:text-gray-400" aria-label=" واتساب" >
               <FaWhatsapp />
             </Link>
-            <Link href="https://www.instagram.com/nada5386mohamed/profilecard/?igsh=aGh2dzk5Zno4c3F0" target='_blank' className="hover:text-gray-400">
+            <Link href="https://www.instagram.com/nada5386mohamed/profilecard/?igsh=aGh2dzk5Zno4c3F0" target='_blank' className="hover:text-gray-400" aria-label=" انستجرام" >
               <FaInstagram />
             </Link>
-            <Link href="https://www.linkedin.com/in/nada-sherif-b9290123b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target='_blank' className="hover:text-gray-400">
+            <Link href="https://www.linkedin.com/in/nada-sherif-b9290123b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target='_blank' className="hover:text-gray-400" aria-label=" لينكدان" >
               <FaLinkedinIn />
             </Link>
           </div>

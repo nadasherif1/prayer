@@ -28,13 +28,13 @@ export default function Search({ onSearch }) {
         onClick={() => onSearch(search)}
         className="border border-blue-300   rounded-md p-2 ml-2 sm: mb-5 mt-5 w-[40%] sm:w-1/3 md:w-1/4 lg:w-1/5 text-sm md:text-base lg:text-lg"
       >
-        Search
+        ابحث
       </button>
       <button
         onClick={handleClear}
         className="border border-red-400  rounded-md p-2 ml-2  sm: mb-5  mt-[20px] w-[40%] sm:w-1/3 md:w-1/4 lg:w-1/5 text-sm md:text-base lg:text-lg"
       >
-        Clear
+        مسح
       </button>
     </div>
   );
