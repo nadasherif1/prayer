@@ -66,7 +66,7 @@ const PrayerTimes = () => {
   return (
     <div className="bg-[#404040]/[0.1] text-white rounded-2xl py-10">
       <h2 className="text-center font-semibold text-xl">
-       الصلاه القادمة: {nextPrayer}
+       باقي علي: {nextPrayer}
       </h2>
       <div className="flex justify-center text-4xl font-bold py-4 space-x-4 ">
         <div>

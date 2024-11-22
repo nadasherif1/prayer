@@ -25,7 +25,8 @@ const Quran = () => {
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {surahs.map((surah) => (
           <Link href={`/quran/surah/${surah.number}`} key={surah.number}>
-            <div className="p-4  rounded-lg shadow  transition duration-200 cursor-pointer">
+            <div className="p-4  rounded-lg shadow  transition-transform hover:scale-105
+           duration-200 cursor-pointer">
               <div className="text-center text-lg font-bold">{surah.name}</div>
               <div className="text-sm text-gray-500 text-center">
                 {surah.englishName}
