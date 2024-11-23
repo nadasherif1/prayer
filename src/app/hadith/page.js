@@ -1,6 +1,6 @@
 "use client";
-
 import { useState } from "react";
+import forty from "../../../data/forty.json";
 
 const hisnMuslimHadiths = [
   {
@@ -114,7 +114,8 @@ const Hadith = () => {
   const [categories] = useState([
     { id: "bukhari", name: "صحيح البخاري" },
     { id: "muslim", name: "صحيح مسلم" },
-    { id: "hisnMuslimHadiths", name: "حصن المسلم "},
+    { id: "hisnMuslimHadiths", name: "حصن المسلم " },
+    { id: "fortyHadithofan-Nawawi", name: "الأربعون النووية" },
   ]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [hadiths, setHadiths] = useState([]);
@@ -127,6 +128,12 @@ const Hadith = () => {
     try {
       if (categoryId === "hisnMuslimHadiths") {
         setHadiths(hisnMuslimHadiths);
+      } else if (categoryId === "fortyHadithofan-Nawawi") {
+        const formattedHadiths = forty.map((item) => ({
+          arab: item.hadith,
+          reference: item.description,
+        }));
+        setHadiths(formattedHadiths);
       } else {
         const response = await fetch(
           `https://api.hadith.gading.dev/books/${categoryId}?range=1-300`
@@ -157,7 +164,7 @@ const Hadith = () => {
   };
 
   return (
-    <div className="mt-[80px] px-4 sm:px-6 lg:px-8 " dir="rtl">
+    <div className="mt-[80px] px-4 sm:px-6 lg:px-8" dir="rtl">
       <h1 className="text-2xl sm:text-3xl font-bold pt-6 pb-9 text-center">
         الأحاديث النبوية
       </h1>
@@ -181,21 +188,20 @@ const Hadith = () => {
       {loading && <p className="text-center text-gray-500">جاري تحميل الأحاديث...</p>}
 
       {!loading && hadiths.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
           {hadiths.map((hadith, index) => (
             <div
               key={index}
               className="p-4 rounded-lg shadow-md border border-gray-200 transition-transform duration-200 hover:scale-105"
             >
               <p className="text-lg sm:text-xl font-bold text-center">
-                {hadith.arab} 
+                {hadith.arab}
               </p>
               {hadith.reference && (
                 <p className="text-sm text-gray-500 mt-2 text-center">
                   المرجع: {hadith.reference}
                 </p>
               )}
-             
             </div>
           ))}
         </div>
