@@ -57,41 +57,63 @@ const AchievementPage = () => {
 
   const handlePrayerComplete = (date, prayer) => {
     const updatedDayData = dayData.map((item) =>
-      item.date === date ? { ...item, prayer: { ...item.prayer, [prayer]: true } } : item
+      item.date === date
+        ? {
+            ...item,
+            prayer: {
+              ...item.prayer,
+              [prayer]: !item.prayer[prayer], // تبديل الحالة
+            },
+          }
+        : item
     );
     setDayData(updatedDayData);
     updateLocalStorage(updatedDayData);
-
+  
     const todayData = updatedDayData.find((item) => item.date === date);
     if (Object.values(todayData.prayer).every(Boolean)) {
       setOpenSnackbar(true);
       setSnackMessage(motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)]);
     }
   };
+  
 
   const handleDhikrComplete = (date, type) => {
     const updatedDayData = dayData.map((item) =>
       item.date === date
-        ? { ...item, [type === "morning" ? "dhikrMorning" : "dhikrEvening"]: true }
+        ? {
+            ...item,
+            [type === "morning" ? "dhikrMorning" : "dhikrEvening"]: !item[
+              type === "morning" ? "dhikrMorning" : "dhikrEvening"
+            ], // تبديل الحالة
+          }
         : item
     );
     setDayData(updatedDayData);
     updateLocalStorage(updatedDayData);
-
+  
     setSnackMessage(motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)]);
     setOpenSnackbar(true);
   };
+  
 
   const handleDhikrToday = (date) => {
-    const updatedDayData = dayData.map((item) =>
-      item.date === date ? { ...item, dhikrCompleted: true } : item
-    );
-    setDayData(updatedDayData);
-    updateLocalStorage(updatedDayData);
+  const updatedDayData = dayData.map((item) =>
+    item.date === date
+      ? { ...item, dhikrCompleted: !item.dhikrCompleted } // تبديل الحالة
+      : item
+  );
+  setDayData(updatedDayData);
+  updateLocalStorage(updatedDayData);
 
-    setSnackMessage("تمت قراءة الورد اليومي");
-    setOpenSnackbar(true);
-  };
+  setSnackMessage(
+    updatedDayData.find((item) => item.date === date).dhikrCompleted
+      ? "تمت قراءة الورد اليومي"
+      : "تم إلغاء الورد اليومي"
+  );
+  setOpenSnackbar(true);
+};
+
 
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
@@ -169,44 +191,43 @@ const AchievementPage = () => {
                 <TableRow key={day.date} className=" transition-all">
                   <TableCell className="text-center">{day.date}</TableCell>
                   {["fajr", "dhuhr", "asr", "maghrib", "isha"].map((prayer) => (
-                    <TableCell key={prayer} className="text-center">
-                      <Radio
-                        checked={day.prayer[prayer]}
-                        onChange={() => handlePrayerComplete(day.date, prayer)}
-                        color="gray"
-                      />
-                    </TableCell>
-                  ))}
-                  <TableCell className="text-center">
-                    <Button
-                      variant="contained"
-                      color={day.dhikrMorning ? "success" : "success"}
-                      onClick={() => handleDhikrComplete(day.date, "morning")}
-                      disabled={day.dhikrMorning}
-                    >
-                      {day.dhikrMorning ? "تم قراءة الأذكار الصباحية" : "قراءة الأذكار الصباحية"}
-                    </Button>
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <Button
-                      variant="contained"
-                      color={day.dhikrEvening ? "success" : "success"}
-                      onClick={() => handleDhikrComplete(day.date, "evening")}
-                      disabled={day.dhikrEvening}
-                    >
-                      {day.dhikrEvening ? "تم قراءة الأذكار المسائية" : "قراءة الأذكار المسائية"}
-                    </Button>
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <Button
-                      variant="contained"
-                      color={day.dhikrCompleted ? "success" : "success"}
-                      onClick={() => handleDhikrToday(day.date)}
-                      disabled={day.dhikrCompleted}
-                    >
-                      {day.dhikrCompleted ? "تم الورد اليومي" : "قراءة الورد اليومي"}
-                    </Button>
-                  </TableCell>
+  <TableCell key={prayer} className="text-center">
+    <Checkbox
+      checked={day.prayer[prayer]}
+      onChange={() => handlePrayerComplete(day.date, prayer)}
+      color="gray"
+    />
+  </TableCell>
+))}
+
+<TableCell className="text-center">
+  <Button
+    variant="contained"
+    color={day.dhikrMorning ? "success" : ""}
+    onClick={() => handleDhikrComplete(day.date, "morning")}
+  >
+    {day.dhikrMorning ? " تم قراءة الأذكار الصباحية" : " قراءة الأذكار الصباحية"}
+  </Button>
+</TableCell>
+<TableCell className="text-center">
+  <Button
+    variant="contained"
+    color={day.dhikrEvening ? "success" : ""}
+    onClick={() => handleDhikrComplete(day.date, "evening")}
+  >
+    {day.dhikrEvening ? "  تم قراءة الأذكار المسائية" : " قراءة الأذكار المسائية"}
+  </Button>
+</TableCell>
+<TableCell className="text-center">
+  <Button
+    variant="contained"
+    color={day.dhikrCompleted ? "success" : ""}
+    onClick={() => handleDhikrToday(day.date)}
+  >
+    {day.dhikrCompleted ? " تم قراءه الورد اليومي " : " قراءه الورد اليومي"}
+  </Button>
+</TableCell>
+
                 </TableRow>
               ))}
             </TableBody>
