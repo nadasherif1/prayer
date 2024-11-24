@@ -29,7 +29,11 @@ const Header = () => {
 
         <nav className="hidden lg:block ">
           <ul className="flex gap-6 text-lg font-semibold">
-            
+          <li className="hover:underline underline-offset-4">
+              <Link className="text-white hover:text-gray-400" href="/achievements">
+                الانجازات
+              </Link>
+            </li>
             <li className="hover:underline underline-offset-4">
               <Link className="text-white hover:text-gray-400" href="/radioPage">
                 اذاعه القران الكريم
@@ -144,6 +148,14 @@ const Header = () => {
                   </ListItemIcon>
                   <ListItemText>
                     <Link href="/radioPage">اذاعه القران الكريم</Link>
+                  </ListItemText>
+                </ListItem>
+                <ListItem button onClick={toggleDrawer}>
+                  <ListItemIcon>
+                    < StarsIcon style={{ color: "#fff" }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Link href="/achievements">الانجازات</Link>
                   </ListItemText>
                 </ListItem>
               </List>
