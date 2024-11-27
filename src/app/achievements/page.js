@@ -163,7 +163,7 @@ const AchievementPage = () => {
                   <TableCell className="text-center font-bold">العصر</TableCell>
                   <TableCell className="text-center font-bold">المغرب</TableCell>
                   <TableCell className="text-center font-bold">العشاء</TableCell>
-                  <TableCell className="text-center font-bold">أذكار الصباح</TableCell>
+                  <TableCell className="text-center font-bold ">أذكار الصباح</TableCell>
                   <TableCell className="text-center font-bold">أذكار المساء</TableCell>
                   <TableCell className="text-center font-bold">ورد اليوم</TableCell>
                 </TableRow>
