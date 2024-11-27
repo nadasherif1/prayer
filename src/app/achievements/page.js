@@ -1,8 +1,9 @@
+
+
 "use client";
 import React, { useState, useEffect } from "react";
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, Button, Snackbar, Alert,
-  Radio,
 } from "@mui/material";
 import { motion } from "framer-motion";
 
@@ -30,7 +31,6 @@ const AchievementPage = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
 
-  
   const initializeDayData = () => {
     const storedData = JSON.parse(localStorage.getItem("dayData"));
     if (storedData) {
@@ -59,61 +59,58 @@ const AchievementPage = () => {
     const updatedDayData = dayData.map((item) =>
       item.date === date
         ? {
-            ...item,
-            prayer: {
-              ...item.prayer,
-              [prayer]: !item.prayer[prayer], // تبديل الحالة
-            },
-          }
+          ...item,
+          prayer: {
+            ...item.prayer,
+            [prayer]: !item.prayer[prayer],
+          },
+        }
         : item
     );
     setDayData(updatedDayData);
     updateLocalStorage(updatedDayData);
-  
+
     const todayData = updatedDayData.find((item) => item.date === date);
     if (Object.values(todayData.prayer).every(Boolean)) {
       setOpenSnackbar(true);
       setSnackMessage(motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)]);
     }
   };
-  
 
   const handleDhikrComplete = (date, type) => {
     const updatedDayData = dayData.map((item) =>
       item.date === date
         ? {
-            ...item,
-            [type === "morning" ? "dhikrMorning" : "dhikrEvening"]: !item[
-              type === "morning" ? "dhikrMorning" : "dhikrEvening"
-            ], // تبديل الحالة
-          }
+          ...item,
+          [type === "morning" ? "dhikrMorning" : "dhikrEvening"]: !item[
+            type === "morning" ? "dhikrMorning" : "dhikrEvening"
+          ],
+        }
         : item
     );
     setDayData(updatedDayData);
     updateLocalStorage(updatedDayData);
-  
+
     setSnackMessage(motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)]);
     setOpenSnackbar(true);
   };
-  
 
   const handleDhikrToday = (date) => {
-  const updatedDayData = dayData.map((item) =>
-    item.date === date
-      ? { ...item, dhikrCompleted: !item.dhikrCompleted } // تبديل الحالة
-      : item
-  );
-  setDayData(updatedDayData);
-  updateLocalStorage(updatedDayData);
+    const updatedDayData = dayData.map((item) =>
+      item.date === date
+        ? { ...item, dhikrCompleted: !item.dhikrCompleted }
+        : item
+    );
+    setDayData(updatedDayData);
+    updateLocalStorage(updatedDayData);
 
-  setSnackMessage(
-    updatedDayData.find((item) => item.date === date).dhikrCompleted
-      ? "تمت قراءة الورد اليومي"
-      : "تم إلغاء الورد اليومي"
-  );
-  setOpenSnackbar(true);
-};
-
+    setSnackMessage(
+      updatedDayData.find((item) => item.date === date).dhikrCompleted
+        ? "تمت قراءة الورد اليومي"
+        : "تم إلغاء الورد اليومي"
+    );
+    setOpenSnackbar(true);
+  };
 
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
@@ -126,7 +123,7 @@ const AchievementPage = () => {
         setSnackMessage("لا تنسَ قراءة الأذكار اليومية وإتمام الصلوات.");
         setOpenSnackbar(true);
       }
-    }, 3600000); 
+    }, 3600000);
     return () => clearInterval(intervalId);
   }, [dayData]);
 
@@ -140,7 +137,7 @@ const AchievementPage = () => {
   }
 
   return (
-    <div className="mt-16 px-8 rounded-lg shadow-lg p-6" >
+    <div className="mt-16 px-8 rounded-lg shadow-lg p-6">
       <motion.h1
         className="text-center text-4xl font-semibold mb-8"
         initial={{ opacity: 0 }}
@@ -149,94 +146,88 @@ const AchievementPage = () => {
       >
         إنجازاتك اليومية
       </motion.h1>
-      <motion.div
-   className="mt-12 text-center text-lg mb-6"
-   initial={{ opacity: 0 }}
-   animate={{ opacity: 1 }}
-   transition={{ duration: 1 }}
- >
-   <p>
-     إن الاستمرارية في أداء الصلوات والأذكار اليومية هي من أعظم العبادات التي تقربنا إلى الله سبحانه وتعالى. 
-     إن كل صلاة وذكر نقوم به هو خطوة نحو طاعة الله وزيادة في حسناتنا. 
-     بتقسيمنا لهذا الشهر إلى أسابيع، نستطيع أن نرى كيف ننمو روحياً مع مرور الأيام، وكيف أن المثابرة في العبادة تحقق لنا الراحة النفسية وتقربنا إلى الله.
-     فلتكن هذه الإنجازات اليومية دافعاً لنا للاستمرار في طريق الخير، ونسأل الله أن يعيننا على إتمامها بإخلاص.
-   </p>
- </motion.div>
       {weeks.map((week, weekIndex) => (
- <motion.div
- key={weekIndex}
- initial={{ opacity: 0, y: 50 }}
- animate={{ opacity: 1, y: 0 }}
- transition={{ duration: 0.5, delay: weekIndex * 0.3 }}
->
-        <TableContainer component={Paper} className="mb-8 w-full overflow-x-auto " key={weekIndex}>
-          <Table
-          
-          >
-            <TableHead>
-              <TableRow className="bg-gray-300">
-                <TableCell className="text-center font-bold">اليوم</TableCell>
-                <TableCell className="text-center font-bold">الفجر</TableCell>
-                <TableCell className="text-center font-bold">الظهر</TableCell>
-                <TableCell className="text-center font-bold">العصر</TableCell>
-                <TableCell className="text-center font-bold">المغرب</TableCell>
-                <TableCell className="text-center font-bold">العشاء</TableCell>
-                <TableCell className="text-center font-bold">أذكار الصباح</TableCell>
-                <TableCell className="text-center font-bold">أذكار المساء</TableCell>
-                <TableCell className="text-center font-bold">ورد اليوم</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody >
-              {week.map((day) => (
-                <TableRow key={day.date} className=" transition-all">
-                  <TableCell className="text-center">{day.date}</TableCell>
-                  {["fajr", "dhuhr", "asr", "maghrib", "isha"].map((prayer) => (
-  <TableCell key={prayer} className="text-center">
-    <Checkbox
-      checked={day.prayer[prayer]}
-      onChange={() => handlePrayerComplete(day.date, prayer)}
-      color="gray"
-    />
-  </TableCell>
-))}
-
-<TableCell className="text-center">
-  <Button
-    variant="contained"
-    color={day.dhikrMorning ? "success" : ""}
-    onClick={() => handleDhikrComplete(day.date, "morning")}
-  >
-    {day.dhikrMorning ? " تم قراءة الأذكار الصباحية" : " قراءة الأذكار الصباحية"}
-  </Button>
-</TableCell>
-<TableCell className="text-center">
-  <Button
-    variant="contained"
-    color={day.dhikrEvening ? "success" : ""}
-    onClick={() => handleDhikrComplete(day.date, "evening")}
-  >
-    {day.dhikrEvening ? "  تم قراءة الأذكار المسائية" : " قراءة الأذكار المسائية"}
-  </Button>
-</TableCell>
-<TableCell className="text-center">
-  <Button
-    variant="contained"
-    color={day.dhikrCompleted ? "success" : ""}
-    onClick={() => handleDhikrToday(day.date)}
-  >
-    {day.dhikrCompleted ? " تم قراءه الورد اليومي " : " قراءه الورد اليومي"}
-  </Button>
-</TableCell>
-
+        <motion.div
+          key={weekIndex}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: weekIndex * 0.3 }}
+        >
+          <TableContainer component={Paper} className="mb-8 w-full overflow-x-auto">
+            <Table>
+              <TableHead>
+                <TableRow className="bg-gray-300">
+                  <TableCell className="text-center font-bold">اليوم</TableCell>
+                  <TableCell className="text-center font-bold">الفجر</TableCell>
+                  <TableCell className="text-center font-bold">الظهر</TableCell>
+                  <TableCell className="text-center font-bold">العصر</TableCell>
+                  <TableCell className="text-center font-bold">المغرب</TableCell>
+                  <TableCell className="text-center font-bold">العشاء</TableCell>
+                  <TableCell className="text-center font-bold">أذكار الصباح</TableCell>
+                  <TableCell className="text-center font-bold">أذكار المساء</TableCell>
+                  <TableCell className="text-center font-bold">ورد اليوم</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {week.map((day) => (
+                  <TableRow key={day.date} className="transition-all">
+                    <TableCell className="text-center">{day.date}</TableCell>
+                    {["fajr", "dhuhr", "asr", "maghrib", "isha"].map((prayer) => (
+                      <TableCell key={prayer} className="text-center ">
+                        <Checkbox
+                          checked={day.prayer[prayer]}
+                          onChange={() => handlePrayerComplete(day.date, prayer)}
+                          color="default"
+                        />
+                      </TableCell>
+                    ))}
+                    <TableCell className="text-center">
+                      <Button
+                        variant="contained"
+                        style={{
+                          backgroundColor: day.dhikrMorning ? "gray" : "darkred",
+                          color: "white",
+                        }}
+                        onClick={() => handleDhikrComplete(day.date, "morning")}
+                      >
+                        {day.dhikrMorning ? "تم قراءة الأذكار الصباحية" : "قراءة الأذكار الصباحية"}
+                      </Button>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <Button
+                        variant="contained"
+                        style={{
+                          backgroundColor: day.dhikrEvening ? "gray" : "darkred",
+                          color: "white",
+                        }}
+                        onClick={() => handleDhikrComplete(day.date, "evening")}
+                      >
+                        {day.dhikrEvening ? "تم قراءة الأذكار المسائية" : "قراءة الأذكار المسائية"}
+                      </Button>
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <Button
+                        variant="contained"
+                        style={{
+                          backgroundColor: day.dhikrCompleted ? "gray" : "darkred",
+                          color: "white",
+                        }}
+                        onClick={() => handleDhikrToday(day.date)}
+                      >
+                        {day.dhikrCompleted ? "تم قراءة الورد اليومي" : "قراءة الورد اليومي"}
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </motion.div>
       ))}
-      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-        <Alert severity="info">{snackMessage}</Alert>
+      <Snackbar open={openSnackbar} autoHideDuration={3000} onClose={handleCloseSnackbar}>
+        <Alert severity="success" sx={{ width: "100%" }}>
+          {snackMessage}
+        </Alert>
       </Snackbar>
     </div>
   );
