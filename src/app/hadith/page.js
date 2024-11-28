@@ -115,7 +115,7 @@ const Hadith = () => {
     { id: "bukhari", name: "صحيح البخاري" },
     { id: "muslim", name: "صحيح مسلم" },
     { id: "hisnMuslimHadiths", name: "حصن المسلم " },
-    { id: "fortyHadithofan-Nawawi", name: "الأربعون النووية" },
+    // { id: "fortyHadithofan-Nawawi", name: "الأربعون النووية" },
   ]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [hadiths, setHadiths] = useState([]);
@@ -128,13 +128,15 @@ const Hadith = () => {
     try {
       if (categoryId === "hisnMuslimHadiths") {
         setHadiths(hisnMuslimHadiths);
-      } else if (categoryId === "fortyHadithofan-Nawawi") {
-        const formattedHadiths = forty.map((item) => ({
-          arab: item.hadith,
-          reference: item.description,
-        }));
-        setHadiths(formattedHadiths);
-      } else {
+      // } else if (categoryId === "fortyHadithofan-Nawawi") {
+      //   const formattedHadiths = forty.map((item) => ({
+      //     arab: item.hadith,
+      //     reference: item.description,
+      //   }));
+      //   setHadiths(formattedHadiths);
+      // } else {
+}
+else{
         const response = await fetch(
           `https://api.hadith.gading.dev/books/${categoryId}?range=1-300`
         );
@@ -197,7 +199,7 @@ const Hadith = () => {
           {hadiths.map((hadith, index) => (
             <div
               key={index}
-              className="p-4 rounded-lg shadow-md border border-gray-200 transition-transform duration-200 hover:scale-105"
+              className="p-4 rounded-lg shadow-md h-auto border border-gray-200 transition-transform duration-200 hover:scale-105"
             >
               <p className="text-lg sm:text-xl font-bold text-center">
                 {hadith.arab}
